@@ -23,9 +23,12 @@
         <div class="nav-wrapper">
           <%= link_to "KamiEditor", root_path, action: "get", class: "brand-logo" %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
         <li>
           <%= link_to "記事生み", new_post_path, action: "get", class: "waves-effect waves-light btn white-text" %>
-      </ul>
+        </li>
+        <% end %>
+        </ul>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
       </div>
@@ -44,11 +47,13 @@
             <p class="grey-text text-lighten-4">このアプリケーションは、神が国を産むように記事をHTMLテキストで生み出します。</p>
           </div>
           <div class="col l4 offset-l2 s12">
+            <% if user_signed_in? %>
             <h5 class="white-text">UserMenu</h5>
             <ul>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "white-text" %></li>
               <li>マイページ</li>
             </ul>
+            <% end %>
           </div>
         </div>
       </div>
