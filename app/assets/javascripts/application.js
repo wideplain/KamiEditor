@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
+//= require ckeditor/override
 //= require ckeditor/init
 //= require materialize-sprockets
 //= require_tree .
