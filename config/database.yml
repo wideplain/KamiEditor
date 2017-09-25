@@ -1,0 +1,29 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: hotokami_editor_development
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: hotokami_editor_test
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+roduction:
+  <<: *default
+  database: hotokami_editor_production
+  username: hotokami_editor
+  password: <%= ENV['HOTOKAMI_EDITOR_DATABASE_PASSWORD'] %>

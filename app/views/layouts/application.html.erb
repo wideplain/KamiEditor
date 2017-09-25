@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KamiEditor</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.8/clipboard.min.js"></script>
+    <script type="text/javascript">
+        var clipboard = new Clipboard('.btn');
+        clipboard.on('success', function(e) {
+            //成功時の処理
+        });
+        clipboard.on('error', function(e) {
+          //失敗時の処理
+        });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="nav-wrapper">
+          <%= link_to "KamiEditor", root_path, action: "get", class: "brand-logo" %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <%= link_to "記事生み", new_post_path, action: "get", class: "waves-effect waves-light btn white-text" %>
+      </ul>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container">
+    <div class="container_height">
+      <%= yield %>
+    </div>
+  </div>
+  <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">神エディター</h5>
+            <p class="grey-text text-lighten-4">このアプリケーションは、神が国を産むように記事をHTMLテキストで生み出します。</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">UserMenu</h5>
+            <ul>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "white-text" %></li>
+              <li>マイページ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2017 Copyright Koya Kikuchi.
+        <a class="grey-text text-lighten-4 right" href="https://www.facebook.com/hirobirowide">facebook</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

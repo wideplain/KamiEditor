@@ -1,0 +1,21 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.brand-logo {
+  font-family: 'Libre Barcode 39 Text', cursive;
+}
+
+.index_input {
+  width: 100%;
+}
+
+.new--post__submit {
+  margin-top: 1%;
+  padding-left: 1%;
+}
+
+.container_height {
+  position: relative;
+  height: auto;
+  min-height: 70vh;
+}

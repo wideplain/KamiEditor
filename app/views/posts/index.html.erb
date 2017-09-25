@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1><i class="material-icons medium">format_list_bulleted</i>記事管理</h1>
+<div class="chip light-blue white-text right">
+  <i class="material-icons tiny">live_help</i>ヒント:本文はCommand+Aで全選択できます
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>本文</th>
+      <th></th>
+      <th></th>
+      <th>作成日時</th>
+      <th>投稿者</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><input type="text" name="c1" value="<%= post.body %>">
+        </td>
+        <td></td>
+        <td><%= link_to 'エディタ', edit_post_path(post) , class: "btn white center-align"%></td>
+        <td><%= post.created_at.strftime('%Y年%m月%d日 %H:%M') %></td>
+        <td><%= post.user.name %></td>
+        <td><%= link_to '全文', post %></td>
+        <td><%= link_to '消去', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
