@@ -22,8 +22,10 @@ test:
   password:
   socket: /tmp/mysql.sock
 
-roduction:
+production:
   <<: *default
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
   database: hotokami_editor_production
   username: hotokami_editor
   password: <%= ENV['HOTOKAMI_EDITOR_DATABASE_PASSWORD'] %>
