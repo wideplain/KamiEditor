@@ -7,7 +7,6 @@
           <form name="targetForm">
             <textarea type="text" class="materialize-textarea name="inputArea" value="<%= @post.body %>"><%= @post.body %></textarea>
             </textare>
-            <button type="button" class="btn" data-clipboard-text="<%= @post.body %>">コピー(効きません)</button>
         </form>
         <div class="card-action">
           <%= link_to 'Edit', edit_post_path(@post) %>

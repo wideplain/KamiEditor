@@ -23,11 +23,9 @@
         <div class="nav-wrapper">
           <%= link_to "KamiEditor", root_path, action: "get", class: "brand-logo" %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <% if user_signed_in? %>
         <li>
           <%= link_to "記事生み", new_post_path, action: "get", class: "waves-effect waves-light btn white-text" %>
         </li>
-        <% end %>
         </ul>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -48,10 +46,17 @@
           </div>
           <div class="col l4 offset-l2 s12">
             <% if user_signed_in? %>
-            <h5 class="white-text">UserMenu</h5>
+            <h5 class="white-text">ユーザーメニュー</h5>
             <ul>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "white-text" %></li>
-              <li>マイページ</li>
+              <li>マイページ(実装予定)</li>
+            </ul>
+            <% else %>
+            <ul>
+            <h5 class="white-text">投稿者登録</h5>
+            <ul>
+              <li><%= link_to '新規ユーザー登録',  new_user_registration_path, method: :get, class: "white-text" %></li>
+              <li><%= link_to 'ログイン',  new_user_session_path, method: :get, class: "white-text" %></li>
             </ul>
             <% end %>
           </div>
